@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-coding-solutions-api",
+		"name": "Coding Solutions — Public API",
+		"description": "واجهة برمجة التطبيقات العامة للموقع (بدون مصادقة).\n\n**قبل الاستخدام:**\n1. شغّل السيرفر: `php artisan serve`\n2. في Postman: Variables → غيّر `base_url` إلى عنوانك (مثلاً `http://localhost:8000` أو `http://coding-solutions.test`)\n3. المسارات تبدأ بـ `/api`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "article_slug",
+			"value": "ui-design-basics",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "List services",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/services",
+							"host": ["{{base_url}}"],
+							"path": ["api", "services"]
+						},
+						"description": "قائمة الخدمات (عنوان، وصف، أيقونة، ترتيب)."
+					}
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "List projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/projects",
+							"host": ["{{base_url}}"],
+							"path": ["api", "projects"]
+						},
+						"description": "قائمة المشاريع مع التقنيات والصور."
+					}
+				}
+			]
+		},
+		{
+			"name": "Technologies",
+			"item": [
+				{
+					"name": "List technologies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/technologies",
+							"host": ["{{base_url}}"],
+							"path": ["api", "technologies"]
+						},
+						"description": "قائمة التقنيات."
+					}
+				}
+			]
+		},
+		{
+			"name": "Testimonials",
+			"item": [
+				{
+					"name": "List testimonials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/testimonials",
+							"host": ["{{base_url}}"],
+							"path": ["api", "testimonials"]
+						},
+						"description": "شهادات العملاء."
+					}
+				}
+			]
+		},
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "List articles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/articles",
+							"host": ["{{base_url}}"],
+							"path": ["api", "articles"]
+						},
+						"description": "قائمة المقالات."
+					}
+				},
+				{
+					"name": "Show article by slug",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/articles/{{article_slug}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "articles", "{{article_slug}}"]
+						},
+						"description": "مقال واحد حسب الـ slug (مثال من الـ seeder: ui-design-basics)."
+					}
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Contact info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/contact",
+							"host": ["{{base_url}}"],
+							"path": ["api", "contact"]
+						},
+						"description": "بيانات التواصل والشركة (إيميل، هاتف، وسائل التواصل، إلخ)."
+					}
+				}
+			]
+		}
+	]
+}
