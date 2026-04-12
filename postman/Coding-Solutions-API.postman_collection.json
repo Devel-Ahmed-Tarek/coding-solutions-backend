@@ -2,13 +2,18 @@
 	"info": {
 		"_postman_id": "a1b2c3d4-coding-solutions-api",
 		"name": "Coding Solutions — Public API",
-		"description": "واجهة برمجة التطبيقات العامة للموقع (بدون مصادقة).\n\n**قبل الاستخدام:**\n1. شغّل السيرفر: `php artisan serve`\n2. في Postman: Variables → غيّر `base_url` إلى عنوانك (مثلاً `http://localhost:8000` أو `http://coding-solutions.test`)\n3. المسارات تبدأ بـ `/api`",
+		"description": "واجهة برمجة التطبيقات العامة للموقع (بدون مصادقة).\n\n**اللغة:** أضف `?lang=ar` أو `?lang=en` لأي طلب، أو استخدم ترويسة `Accept-Language: ar` أو `en`. القيمة الافتراضية للتطبيق من `APP_LOCALE`.\n\n**المقالات:** `{slug}` يقبل إما `slug_ar` أو `slug_en` لنفس المقال.\n\n**قبل الاستخدام:**\n1. شغّل السيرفر: `php artisan serve`\n2. في Postman: Variables → غيّر `base_url` إلى عنوانك (مثلاً `http://localhost:8000` أو `http://coding-solutions.test`)\n3. المسارات تبدأ بـ `/api`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [
 		{
 			"key": "base_url",
 			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "lang",
+			"value": "ar",
 			"type": "string"
 		},
 		{
@@ -32,11 +37,18 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/services",
+							"raw": "{{base_url}}/api/services?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "services"]
+							"path": ["api", "services"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}",
+									"description": "ar أو en"
+								}
+							]
 						},
-						"description": "قائمة الخدمات (عنوان، وصف، أيقونة، ترتيب)."
+						"description": "قائمة الخدمات. الحقول المُعرَّفة (`title`, `description`, …) حسب اللغة المختارة، مع `translations` للنسختين."
 					}
 				}
 			]
@@ -55,9 +67,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/projects",
+							"raw": "{{base_url}}/api/projects?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "projects"]
+							"path": ["api", "projects"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
 						"description": "قائمة المشاريع مع التقنيات والصور."
 					}
@@ -78,9 +96,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/technologies",
+							"raw": "{{base_url}}/api/technologies?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "technologies"]
+							"path": ["api", "technologies"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
 						"description": "قائمة التقنيات."
 					}
@@ -101,9 +125,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/testimonials",
+							"raw": "{{base_url}}/api/testimonials?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "testimonials"]
+							"path": ["api", "testimonials"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
 						"description": "شهادات العملاء."
 					}
@@ -124,9 +154,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/articles",
+							"raw": "{{base_url}}/api/articles?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "articles"]
+							"path": ["api", "articles"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
 						"description": "قائمة المقالات."
 					}
@@ -142,11 +178,17 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/articles/{{article_slug}}",
+							"raw": "{{base_url}}/api/articles/{{article_slug}}?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "articles", "{{article_slug}}"]
+							"path": ["api", "articles", "{{article_slug}}"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
-						"description": "مقال واحد حسب الـ slug (مثال من الـ seeder: ui-design-basics)."
+						"description": "مقال واحد: ضع `slug_ar` أو `slug_en` (مثال من الـ seeder بالإنجليزية: ui-design-basics). غيّر `article_slug` إن لزم."
 					}
 				}
 			]
@@ -165,11 +207,17 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/contact",
+							"raw": "{{base_url}}/api/contact?lang={{lang}}",
 							"host": ["{{base_url}}"],
-							"path": ["api", "contact"]
+							"path": ["api", "contact"],
+							"query": [
+								{
+									"key": "lang",
+									"value": "{{lang}}"
+								}
+							]
 						},
-						"description": "بيانات التواصل والشركة (إيميل، هاتف، وسائل التواصل، إلخ)."
+						"description": "بيانات التواصل والشركة (إيميل، هاتف، وسائل التواصل، عنوان ونص من نحن حسب اللغة)."
 					}
 				}
 			]

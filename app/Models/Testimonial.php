@@ -2,14 +2,20 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 class Testimonial extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
-        'name',
-        'title',
-        'quote',
+        'name_ar',
+        'name_en',
+        'job_title_ar',
+        'job_title_en',
+        'quote_ar',
+        'quote_en',
         'rating',
         'avatar',
         'order',

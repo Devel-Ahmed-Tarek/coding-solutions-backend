@@ -12,9 +12,20 @@ class ServiceResource extends JsonResource
         return [
             'id' => $this->id,
             'icon' => $this->icon,
-            'title' => $this->title,
-            'description' => $this->description,
+            'title' => $this->localizedValue('title'),
+            'description' => $this->localizedValue('description'),
             'order' => $this->order,
+            'locale' => app()->getLocale(),
+            'translations' => [
+                'ar' => [
+                    'title' => $this->title_ar ?? '',
+                    'description' => $this->description_ar ?? '',
+                ],
+                'en' => [
+                    'title' => $this->title_en ?? '',
+                    'description' => $this->description_en ?? '',
+                ],
+            ],
         ];
     }
 }

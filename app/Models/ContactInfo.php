@@ -2,22 +2,28 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactInfo extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
         'email',
         'phone',
         'whatsapp',
-        'address',
+        'address_ar',
+        'address_en',
         'facebook',
         'twitter',
         'linkedin',
         'instagram',
         'youtube',
         'logo',
-        'company_name',
-        'about_text',
+        'company_name_ar',
+        'company_name_en',
+        'about_text_ar',
+        'about_text_en',
     ];
 }

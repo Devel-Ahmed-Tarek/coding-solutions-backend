@@ -26,7 +26,10 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($services as $service)
             <tr class="hover:bg-gray-50">
-                <td class="px-6 py-4">{{ $service->title }}</td>
+                <td class="px-6 py-4">
+                    <div class="font-medium">{{ $service->title_ar }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $service->title_en }}</div>
+                </td>
                 <td class="px-6 py-4">{{ $service->order }}</td>
                 <td class="px-6 py-4">
                     <span class="px-3 py-1 rounded-full text-xs {{ $service->is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600' }}">

@@ -30,8 +30,10 @@ class ServiceController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'title_ar' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'description_ar' => 'required|string',
+            'description_en' => 'required|string',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
@@ -53,8 +55,10 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'title_ar' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'description_ar' => 'required|string',
+            'description_en' => 'required|string',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',

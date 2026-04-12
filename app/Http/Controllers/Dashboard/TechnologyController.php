@@ -30,7 +30,8 @@ class TechnologyController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
@@ -51,7 +52,8 @@ class TechnologyController extends Controller
     public function update(Request $request, Technology $technology): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name_ar' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);

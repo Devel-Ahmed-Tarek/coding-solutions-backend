@@ -38,7 +38,8 @@
 
 <div class="mt-12 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
     <h2 class="font-semibold text-gray-800 mb-4">روابط API</h2>
-    <p class="text-gray-500 mb-4">يمكن استهلاك البيانات عبر الـ API التالية:</p>
+    <p class="text-gray-500 mb-2">يمكن استهلاك البيانات عبر الـ API التالية. لاختيار لغة الاستجابة أضف <code class="bg-gray-100 px-1 rounded">?lang=ar</code> أو <code class="bg-gray-100 px-1 rounded">?lang=en</code> (أو ترويسة <code class="bg-gray-100 px-1 rounded">Accept-Language</code>).</p>
+    <p class="text-gray-500 mb-4 text-sm">مثال: <span class="font-mono">/api/services?lang=en</span> — مقال واحد: استخدم <span class="font-mono">slug_ar</span> أو <span class="font-mono">slug_en</span> في المسار.</p>
     <div class="space-y-2 font-mono text-sm bg-gray-50 rounded-xl p-4">
         <p><span class="text-blue-600">GET</span> /api/services</p>
         <p><span class="text-blue-600">GET</span> /api/projects</p>

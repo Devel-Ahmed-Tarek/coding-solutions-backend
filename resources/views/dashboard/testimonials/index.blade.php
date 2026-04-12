@@ -24,8 +24,14 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($testimonials as $t)
             <tr class="hover:bg-gray-50">
-                <td class="px-6 py-4">{{ $t->name }}</td>
-                <td class="px-6 py-4">{{ $t->title ?? '-' }}</td>
+                <td class="px-6 py-4">
+                    <div>{{ $t->name_ar }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $t->name_en }}</div>
+                </td>
+                <td class="px-6 py-4">
+                    <div>{{ $t->job_title_ar ?? '—' }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $t->job_title_en ?? '' }}</div>
+                </td>
                 <td class="px-6 py-4">{{ $t->rating }}/5</td>
                 <td class="px-6 py-4">
                     <a href="{{ route('dashboard.testimonials.show', $t) }}" class="text-gray-600 hover:underline ml-4">عرض</a>

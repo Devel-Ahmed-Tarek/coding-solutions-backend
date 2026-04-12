@@ -23,7 +23,10 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($technologies as $tech)
             <tr class="hover:bg-gray-50">
-                <td class="px-6 py-4 font-medium">{{ $tech->name }}</td>
+                <td class="px-6 py-4">
+                    <div class="font-medium">{{ $tech->name_ar }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $tech->name_en }}</div>
+                </td>
                 <td class="px-6 py-4">{{ $tech->order }}</td>
                 <td class="px-6 py-4">
                     <a href="{{ route('dashboard.technologies.show', $tech) }}" class="text-gray-600 hover:underline ml-4">عرض</a>

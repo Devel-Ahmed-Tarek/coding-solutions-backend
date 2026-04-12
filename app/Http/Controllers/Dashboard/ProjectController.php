@@ -37,9 +37,12 @@ class ProjectController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'category' => 'nullable|string|max:255',
+            'title_ar' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'description_ar' => 'nullable|string',
+            'description_en' => 'nullable|string',
+            'category_ar' => 'nullable|string|max:255',
+            'category_en' => 'nullable|string|max:255',
             'link' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
@@ -78,9 +81,12 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'category' => 'nullable|string|max:255',
+            'title_ar' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'description_ar' => 'nullable|string',
+            'description_en' => 'nullable|string',
+            'category_ar' => 'nullable|string|max:255',
+            'category_en' => 'nullable|string|max:255',
             'link' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',

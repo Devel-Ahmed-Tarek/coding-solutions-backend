@@ -2,15 +2,22 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
-        'title',
-        'description',
-        'slug',
-        'category',
+        'title_ar',
+        'title_en',
+        'description_ar',
+        'description_en',
+        'slug_ar',
+        'slug_en',
+        'category_ar',
+        'category_en',
         'icon',
         'image',
         'order',

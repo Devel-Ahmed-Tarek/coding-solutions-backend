@@ -2,14 +2,19 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
         'icon',
-        'title',
-        'description',
+        'title_ar',
+        'title_en',
+        'description_ar',
+        'description_en',
         'order',
         'is_active',
     ];

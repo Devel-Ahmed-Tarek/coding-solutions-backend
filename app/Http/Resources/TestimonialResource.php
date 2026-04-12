@@ -11,12 +11,25 @@ class TestimonialResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'title' => $this->title,
-            'quote' => $this->quote,
+            'name' => $this->localizedValue('name'),
+            'job_title' => $this->localizedValue('job_title'),
+            'quote' => $this->localizedValue('quote'),
             'rating' => $this->rating,
-            'avatar' => $this->avatar ? asset('storage/' . $this->avatar) : null,
+            'avatar' => $this->avatar ? asset('storage/'.$this->avatar) : null,
             'order' => $this->order,
+            'locale' => app()->getLocale(),
+            'translations' => [
+                'ar' => [
+                    'name' => $this->name_ar ?? '',
+                    'job_title' => $this->job_title_ar ?? '',
+                    'quote' => $this->quote_ar ?? '',
+                ],
+                'en' => [
+                    'name' => $this->name_en ?? '',
+                    'job_title' => $this->job_title_en ?? '',
+                    'quote' => $this->quote_en ?? '',
+                ],
+            ],
         ];
     }
 }

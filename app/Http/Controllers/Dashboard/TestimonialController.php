@@ -30,9 +30,12 @@ class TestimonialController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'nullable|string|max:255',
-            'quote' => 'required|string',
+            'name_ar' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
+            'job_title_ar' => 'nullable|string|max:255',
+            'job_title_en' => 'nullable|string|max:255',
+            'quote_ar' => 'required|string',
+            'quote_en' => 'required|string',
             'rating' => 'nullable|integer|min:1|max:5',
             'avatar' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
@@ -56,9 +59,12 @@ class TestimonialController extends Controller
     public function update(Request $request, Testimonial $testimonial): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'nullable|string|max:255',
-            'quote' => 'required|string',
+            'name_ar' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
+            'job_title_ar' => 'nullable|string|max:255',
+            'job_title_en' => 'nullable|string|max:255',
+            'quote_ar' => 'required|string',
+            'quote_en' => 'required|string',
             'rating' => 'nullable|integer|min:1|max:5',
             'avatar' => 'nullable|string|max:255',
             'order' => 'nullable|integer',

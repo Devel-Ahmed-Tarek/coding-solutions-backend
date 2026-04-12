@@ -17,14 +17,25 @@
             <tr>
                 <th class="text-right px-6 py-4 text-sm font-medium text-gray-600">العنوان</th>
                 <th class="text-right px-6 py-4 text-sm font-medium text-gray-600">الفئة</th>
+                <th class="text-right px-6 py-4 text-sm font-medium text-gray-600">الروابط (slug)</th>
                 <th class="text-right px-6 py-4 text-sm font-medium text-gray-600">إجراءات</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
             @forelse($articles as $article)
             <tr class="hover:bg-gray-50">
-                <td class="px-6 py-4">{{ $article->title }}</td>
-                <td class="px-6 py-4">{{ $article->category ?? '-' }}</td>
+                <td class="px-6 py-4">
+                    <div class="font-medium">{{ $article->title_ar }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $article->title_en }}</div>
+                </td>
+                <td class="px-6 py-4">
+                    <div>{{ $article->category_ar ?? '—' }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $article->category_en ?? '' }}</div>
+                </td>
+                <td class="px-6 py-4 text-xs font-mono">
+                    <div dir="rtl">{{ $article->slug_ar }}</div>
+                    <div dir="ltr" class="text-gray-500">{{ $article->slug_en }}</div>
+                </td>
                 <td class="px-6 py-4">
                     <a href="{{ route('dashboard.articles.show', $article) }}" class="text-gray-600 hover:underline ml-4">عرض</a>
                     <a href="{{ route('dashboard.articles.edit', $article) }}" class="text-blue-600 hover:underline ml-4">تعديل</a>
@@ -36,7 +47,7 @@
                 </td>
             </tr>
             @empty
-            <tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">لا توجد مقالات</td></tr>
+            <tr><td colspan="4" class="px-6 py-12 text-center text-gray-500">لا توجد مقالات</td></tr>
             @endforelse
         </tbody>
     </table>

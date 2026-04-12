@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Technology extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
-        'name',
+        'name_ar',
+        'name_en',
         'order',
         'is_active',
     ];

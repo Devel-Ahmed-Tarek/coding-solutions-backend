@@ -13,5 +13,5 @@ Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/technologies', [TechnologyController::class, 'index']);
 Route::get('/testimonials', [TestimonialController::class, 'index']);
 Route::get('/articles', [ArticleController::class, 'index']);
-Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
+Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 Route::get('/contact', [ContactInfoController::class, 'show']);

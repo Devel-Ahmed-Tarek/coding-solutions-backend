@@ -5,31 +5,63 @@
 @section('content')
 <div class="mb-8">
     <h1 class="text-2xl font-bold text-gray-800">تعديل الشهادة</h1>
-    <p class="text-gray-500 mt-1">{{ $testimonial->name }}</p>
+    <p class="text-gray-500 mt-1">{{ $testimonial->name_ar }}</p>
 </div>
 
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-2xl">
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-3xl">
     <form action="{{ route('dashboard.testimonials.update', $testimonial) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="space-y-6">
+        <div class="space-y-8">
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">الاسم</label>
-                <input type="text" name="name" value="{{ old('name', $testimonial->name) }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">
-                @error('name')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">العربية</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">الاسم (عربي)</label>
+                        <input type="text" name="name_ar" value="{{ old('name_ar', $testimonial->name_ar) }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="rtl">
+                        @error('name_ar')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">المسمى الوظيفي (عربي)</label>
+                        <input type="text" name="job_title_ar" value="{{ old('job_title_ar', $testimonial->job_title_ar) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="rtl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">الشهادة (عربي)</label>
+                        <textarea name="quote_ar" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="rtl">{{ old('quote_ar', $testimonial->quote_ar) }}</textarea>
+                        @error('quote_ar')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                </div>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">المسمى</label>
-                <input type="text" name="title" value="{{ old('title', $testimonial->title) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">الشهادة</label>
-                <textarea name="quote" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">{{ old('quote', $testimonial->quote) }}</textarea>
-                @error('quote')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">English</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Name (English)</label>
+                        <input type="text" name="name_en" value="{{ old('name_en', $testimonial->name_en) }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
+                        @error('name_en')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Job title (English)</label>
+                        <input type="text" name="job_title_en" value="{{ old('job_title_en', $testimonial->job_title_en) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Quote (English)</label>
+                        <textarea name="quote_en" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('quote_en', $testimonial->quote_en) }}</textarea>
+                        @error('quote_en')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                </div>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">التقييم</label>
                 <input type="number" name="rating" value="{{ old('rating', $testimonial->rating) }}" min="1" max="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">الصورة الرمزية</label>
+                <input type="text" name="avatar" value="{{ old('avatar', $testimonial->avatar) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">الترتيب</label>
+                <input type="number" name="order" value="{{ old('order', $testimonial->order) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none">
             </div>
             <div>
                 <label class="flex items-center gap-2">

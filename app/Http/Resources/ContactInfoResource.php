@@ -14,15 +14,28 @@ class ContactInfoResource extends JsonResource
             'email' => $this->email,
             'phone' => $this->phone,
             'whatsapp' => $this->whatsapp,
-            'address' => $this->address,
+            'address' => $this->localizedValue('address'),
             'facebook' => $this->facebook,
             'twitter' => $this->twitter,
             'linkedin' => $this->linkedin,
             'instagram' => $this->instagram,
             'youtube' => $this->youtube,
-            'logo' => $this->logo ? asset('storage/' . $this->logo) : null,
-            'company_name' => $this->company_name,
-            'about_text' => $this->about_text,
+            'logo' => $this->logo ? asset('storage/'.$this->logo) : null,
+            'company_name' => $this->localizedValue('company_name'),
+            'about_text' => $this->localizedValue('about_text'),
+            'locale' => app()->getLocale(),
+            'translations' => [
+                'ar' => [
+                    'company_name' => $this->company_name_ar ?? '',
+                    'about_text' => $this->about_text_ar ?? '',
+                    'address' => $this->address_ar ?? '',
+                ],
+                'en' => [
+                    'company_name' => $this->company_name_en ?? '',
+                    'about_text' => $this->about_text_en ?? '',
+                    'address' => $this->address_en ?? '',
+                ],
+            ],
         ];
     }
 }

@@ -2,16 +2,22 @@
 
 namespace App\Models;
 
+use App\Support\HasBilingualAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
+    use HasBilingualAttributes;
+
     protected $fillable = [
-        'title',
-        'description',
-        'category',
+        'title_ar',
+        'title_en',
+        'description_ar',
+        'description_en',
+        'category_ar',
+        'category_en',
         'image',
         'link',
         'order',

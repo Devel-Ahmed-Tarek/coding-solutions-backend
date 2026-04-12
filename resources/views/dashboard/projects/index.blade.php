@@ -24,9 +24,15 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($projects as $project)
             <tr class="hover:bg-gray-50">
-                <td class="px-6 py-4">{{ $project->title }}</td>
-                <td class="px-6 py-4">{{ $project->category ?? '-' }}</td>
-                <td class="px-6 py-4">{{ $project->technologies->pluck('name')->join(', ') ?: '-' }}</td>
+                <td class="px-6 py-4">
+                    <div class="font-medium">{{ $project->title_ar }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $project->title_en }}</div>
+                </td>
+                <td class="px-6 py-4">
+                    <div>{{ $project->category_ar ?? '—' }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $project->category_en ?? '' }}</div>
+                </td>
+                <td class="px-6 py-4 text-sm">{{ $project->technologies->pluck('name_ar')->join(', ') ?: '—' }}</td>
                 <td class="px-6 py-4">
                     <a href="{{ route('dashboard.projects.show', $project) }}" class="text-gray-600 hover:underline ml-4">عرض</a>
                     <a href="{{ route('dashboard.projects.edit', $project) }}" class="text-blue-600 hover:underline ml-4">تعديل</a>

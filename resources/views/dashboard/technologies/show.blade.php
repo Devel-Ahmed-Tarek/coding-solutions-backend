@@ -5,8 +5,8 @@
 @section('content')
 <div class="mb-8 flex justify-between items-start">
     <div>
-        <h1 class="text-2xl font-bold text-gray-800">{{ $technology->name }}</h1>
-        <p class="text-gray-500 mt-1">عرض تفاصيل التقنية</p>
+        <h1 class="text-2xl font-bold text-gray-800">{{ $technology->name_ar }}</h1>
+        <p class="text-gray-500 mt-1" dir="ltr">{{ $technology->name_en }}</p>
     </div>
     <div class="flex gap-2">
         <a href="{{ route('dashboard.technologies.edit', $technology) }}" class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition text-sm">تعديل</a>
@@ -17,8 +17,12 @@
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-2xl">
     <dl class="space-y-4">
         <div>
-            <dt class="text-sm font-medium text-gray-500">الاسم</dt>
-            <dd class="mt-1 text-gray-800 font-medium">{{ $technology->name }}</dd>
+            <dt class="text-sm font-medium text-gray-500">الاسم — عربي</dt>
+            <dd class="mt-1 text-gray-800 font-medium" dir="rtl">{{ $technology->name_ar }}</dd>
+        </div>
+        <div>
+            <dt class="text-sm font-medium text-gray-500">Name — English</dt>
+            <dd class="mt-1 text-gray-800" dir="ltr">{{ $technology->name_en }}</dd>
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">الترتيب</dt>

@@ -5,8 +5,8 @@
 @section('content')
 <div class="mb-8 flex justify-between items-start">
     <div>
-        <h1 class="text-2xl font-bold text-gray-800">{{ $service->title }}</h1>
-        <p class="text-gray-500 mt-1">عرض تفاصيل الخدمة</p>
+        <h1 class="text-2xl font-bold text-gray-800">{{ $service->title_ar }}</h1>
+        <p class="text-gray-500 mt-1 text-sm">{{ $service->title_en }}</p>
     </div>
     <div class="flex gap-2">
         <a href="{{ route('dashboard.services.edit', $service) }}" class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition text-sm">تعديل</a>
@@ -14,23 +14,23 @@
     </div>
 </div>
 
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-2xl">
-    <dl class="space-y-4">
-        <div>
-            <dt class="text-sm font-medium text-gray-500">العنوان</dt>
-            <dd class="mt-1 text-gray-800">{{ $service->title }}</dd>
-        </div>
-        <div>
-            <dt class="text-sm font-medium text-gray-500">الوصف</dt>
-            <dd class="mt-1 text-gray-800">{{ $service->description }}</dd>
-        </div>
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-3xl space-y-6">
+    <div>
+        <h3 class="text-sm font-medium text-gray-500 mb-2">الوصف — عربي</h3>
+        <p class="text-gray-800" dir="rtl">{{ $service->description_ar }}</p>
+    </div>
+    <div>
+        <h3 class="text-sm font-medium text-gray-500 mb-2">Description — English</h3>
+        <p class="text-gray-800" dir="ltr">{{ $service->description_en }}</p>
+    </div>
+    <dl class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
         <div>
             <dt class="text-sm font-medium text-gray-500">الأيقونة</dt>
-            <dd class="mt-1 text-gray-800">{{ $service->icon ?? '—' }}</dd>
+            <dd class="mt-1">{{ $service->icon ?? '—' }}</dd>
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">الترتيب</dt>
-            <dd class="mt-1 text-gray-800">{{ $service->order }}</dd>
+            <dd class="mt-1">{{ $service->order }}</dd>
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">الحالة</dt>

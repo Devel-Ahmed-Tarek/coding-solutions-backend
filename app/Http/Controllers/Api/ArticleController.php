@@ -17,8 +17,14 @@ class ArticleController extends Controller
         return ArticleResource::collection($articles);
     }
 
-    public function show(Article $article): JsonResource
+    public function show(string $slug): JsonResource
     {
+        $article = Article::active()
+            ->where(function ($q) use ($slug) {
+                $q->where('slug_ar', $slug)->orWhere('slug_en', $slug);
+            })
+            ->firstOrFail();
+
         return new ArticleResource($article);
     }
 }

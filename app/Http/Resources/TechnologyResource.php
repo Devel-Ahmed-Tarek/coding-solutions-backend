@@ -11,8 +11,13 @@ class TechnologyResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->localizedValue('name'),
             'order' => $this->order,
+            'locale' => app()->getLocale(),
+            'translations' => [
+                'ar' => ['name' => $this->name_ar ?? ''],
+                'en' => ['name' => $this->name_en ?? ''],
+            ],
         ];
     }
 }
