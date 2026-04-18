@@ -12,10 +12,13 @@ class Testimonial extends Model
     protected $fillable = [
         'name_ar',
         'name_en',
+        'name_de',
         'job_title_ar',
         'job_title_en',
+        'job_title_de',
         'quote_ar',
         'quote_en',
+        'quote_de',
         'rating',
         'avatar',
         'order',

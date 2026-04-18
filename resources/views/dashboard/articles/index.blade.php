@@ -27,6 +27,7 @@
                 <td class="px-6 py-4">
                     <div class="font-medium">{{ $article->title_ar }}</div>
                     <div class="text-xs text-gray-500" dir="ltr">{{ $article->title_en }}</div>
+                    @if($article->title_de)<div class="text-xs text-gray-400" dir="ltr">{{ $article->title_de }}</div>@endif
                 </td>
                 <td class="px-6 py-4">
                     <div>{{ $article->category_ar ?? '—' }}</div>
@@ -34,7 +35,7 @@
                 </td>
                 <td class="px-6 py-4 text-xs font-mono">
                     <div dir="rtl">{{ $article->slug_ar }}</div>
-                    <div dir="ltr" class="text-gray-500">{{ $article->slug_en }}</div>
+                    <div dir="ltr" class="text-gray-500">{{ $article->slug_en }}@if($article->slug_de) / {{ $article->slug_de }}@endif</div>
                 </td>
                 <td class="px-6 py-4">
                     <a href="{{ route('dashboard.articles.show', $article) }}" class="text-gray-600 hover:underline ml-4">عرض</a>

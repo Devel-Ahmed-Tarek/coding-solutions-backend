@@ -14,10 +14,13 @@ class Project extends Model
     protected $fillable = [
         'title_ar',
         'title_en',
+        'title_de',
         'description_ar',
         'description_en',
+        'description_de',
         'category_ar',
         'category_en',
+        'category_de',
         'image',
         'link',
         'order',

@@ -25,7 +25,7 @@
             <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4">
                     <div class="font-medium">{{ $tech->name_ar }}</div>
-                    <div class="text-xs text-gray-500" dir="ltr">{{ $tech->name_en }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $tech->name_en }}@if($tech->name_de) · {{ $tech->name_de }}@endif</div>
                 </td>
                 <td class="px-6 py-4">{{ $tech->order }}</td>
                 <td class="px-6 py-4">

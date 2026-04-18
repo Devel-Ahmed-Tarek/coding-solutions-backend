@@ -23,7 +23,7 @@ class SetApiLocale
 
         $locale = is_string($locale) ? strtolower($locale) : '';
 
-        if (in_array($locale, ['en', 'ar'], true)) {
+        if (in_array($locale, ['en', 'ar', 'de'], true)) {
             app()->setLocale($locale);
         } else {
             app()->setLocale(config('app.locale', 'ar'));

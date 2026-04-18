@@ -5,7 +5,7 @@
 @section('content')
 <div class="mb-8">
     <h1 class="text-2xl font-bold text-gray-800">بيانات التواصل</h1>
-    <p class="text-gray-500 mt-1">معلومات الشركة وطرق التواصل (عربي / إنجليزي)</p>
+    <p class="text-gray-500 mt-1">معلومات الشركة وطرق التواصل (عربي / إنجليزي / ألماني)</p>
 </div>
 
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-3xl">
@@ -23,6 +23,10 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Company name (English)</label>
                         <input type="text" name="company_name_en" value="{{ old('company_name_en', $contact->company_name_en) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Firmenname (Deutsch, optional)</label>
+                        <input type="text" name="company_name_de" value="{{ old('company_name_de', $contact->company_name_de) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
                     </div>
                 </div>
             </div>
@@ -52,6 +56,10 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Address (English)</label>
                         <textarea name="address_en" rows="2" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('address_en', $contact->address_en) }}</textarea>
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Adresse (Deutsch, optional)</label>
+                        <textarea name="address_de" rows="2" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('address_de', $contact->address_de) }}</textarea>
+                    </div>
                 </div>
             </div>
             <div>
@@ -64,6 +72,10 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">About (English)</label>
                         <textarea name="about_text_en" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('about_text_en', $contact->about_text_en) }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Über uns (Deutsch, optional)</label>
+                        <textarea name="about_text_de" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('about_text_de', $contact->about_text_de) }}</textarea>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,9 @@ class ArticleController extends Controller
     {
         $article = Article::active()
             ->where(function ($q) use ($slug) {
-                $q->where('slug_ar', $slug)->orWhere('slug_en', $slug);
+                $q->where('slug_ar', $slug)
+                    ->orWhere('slug_en', $slug)
+                    ->orWhere('slug_de', $slug);
             })
             ->firstOrFail();
 

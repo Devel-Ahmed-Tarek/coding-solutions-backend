@@ -13,6 +13,7 @@ class Technology extends Model
     protected $fillable = [
         'name_ar',
         'name_en',
+        'name_de',
         'order',
         'is_active',
     ];

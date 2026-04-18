@@ -35,6 +35,11 @@ class ContactInfoResource extends JsonResource
                     'about_text' => $this->about_text_en ?? '',
                     'address' => $this->address_en ?? '',
                 ],
+                'de' => [
+                    'company_name' => $this->company_name_de ?? '',
+                    'about_text' => $this->about_text_de ?? '',
+                    'address' => $this->address_de ?? '',
+                ],
             ],
         ];
     }

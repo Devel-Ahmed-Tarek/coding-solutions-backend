@@ -33,12 +33,16 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
+            'title_de' => 'nullable|string|max:255',
             'description_ar' => 'required|string',
             'description_en' => 'required|string',
+            'description_de' => 'nullable|string',
             'slug_ar' => 'nullable|string|max:255|unique:articles,slug_ar',
             'slug_en' => 'nullable|string|max:255|unique:articles,slug_en',
+            'slug_de' => 'nullable|string|max:255|unique:articles,slug_de',
             'category_ar' => 'nullable|string|max:255',
             'category_en' => 'nullable|string|max:255',
+            'category_de' => 'nullable|string|max:255',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
@@ -49,6 +53,9 @@ class ArticleController extends Controller
         $validated['order'] = $validated['order'] ?? 0;
         $validated['slug_ar'] = filled($validated['slug_ar'] ?? null) ? $validated['slug_ar'] : Str::slug($validated['title_ar']);
         $validated['slug_en'] = filled($validated['slug_en'] ?? null) ? $validated['slug_en'] : Str::slug($validated['title_en']);
+        $validated['slug_de'] = filled($validated['slug_de'] ?? null)
+            ? $validated['slug_de']
+            : (filled($validated['title_de'] ?? null) ? Str::slug($validated['title_de']) : null);
 
         Article::create($validated);
 
@@ -65,12 +72,16 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
+            'title_de' => 'nullable|string|max:255',
             'description_ar' => 'required|string',
             'description_en' => 'required|string',
+            'description_de' => 'nullable|string',
             'slug_ar' => 'nullable|string|max:255|unique:articles,slug_ar,'.$article->id,
             'slug_en' => 'nullable|string|max:255|unique:articles,slug_en,'.$article->id,
+            'slug_de' => 'nullable|string|max:255|unique:articles,slug_de,'.$article->id,
             'category_ar' => 'nullable|string|max:255',
             'category_en' => 'nullable|string|max:255',
+            'category_de' => 'nullable|string|max:255',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
@@ -81,6 +92,9 @@ class ArticleController extends Controller
         $validated['order'] = $validated['order'] ?? 0;
         $validated['slug_ar'] = filled($validated['slug_ar'] ?? null) ? $validated['slug_ar'] : Str::slug($validated['title_ar']);
         $validated['slug_en'] = filled($validated['slug_en'] ?? null) ? $validated['slug_en'] : Str::slug($validated['title_en']);
+        $validated['slug_de'] = filled($validated['slug_de'] ?? null)
+            ? $validated['slug_de']
+            : (filled($validated['title_de'] ?? null) ? Str::slug($validated['title_de']) : null);
 
         $article->update($validated);
 

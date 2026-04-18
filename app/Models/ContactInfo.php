@@ -15,6 +15,7 @@ class ContactInfo extends Model
         'whatsapp',
         'address_ar',
         'address_en',
+        'address_de',
         'facebook',
         'twitter',
         'linkedin',
@@ -23,7 +24,9 @@ class ContactInfo extends Model
         'logo',
         'company_name_ar',
         'company_name_en',
+        'company_name_de',
         'about_text_ar',
         'about_text_en',
+        'about_text_de',
     ];
 }

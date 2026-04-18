@@ -5,7 +5,7 @@
 @section('content')
 <div class="mb-8">
     <h1 class="text-2xl font-bold text-gray-800">تعديل التقنية</h1>
-    <p class="text-gray-500 mt-1">{{ $technology->name_ar }} — {{ $technology->name_en }}</p>
+    <p class="text-gray-500 mt-1">{{ $technology->name_ar }} — {{ $technology->name_en }}@if($technology->name_de) — {{ $technology->name_de }}@endif</p>
 </div>
 
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-2xl">
@@ -27,6 +27,15 @@
                     <label class="block text-sm font-medium text-gray-700 mb-2">Name (English)</label>
                     <input type="text" name="name_en" value="{{ old('name_en', $technology->name_en) }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
                     @error('name_en')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                </div>
+            </div>
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Deutsch</h2>
+                <p class="text-sm text-gray-500 mb-4">اختياري</p>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Name (Deutsch)</label>
+                    <input type="text" name="name_de" value="{{ old('name_de', $technology->name_de) }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
+                    @error('name_de')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                 </div>
             </div>
             <div>

@@ -5,31 +5,43 @@ namespace App\Support;
 trait HasBilingualAttributes
 {
     /**
-     * @param  array<int, string>  $fields
+     * @param  array<int, string>  $suffixPriority
      */
+    private function firstNonEmptyLocalized(string $field, array $suffixPriority): string
+    {
+        foreach ($suffixPriority as $suffix) {
+            $value = $this->{$field.'_'.$suffix} ?? null;
+            if ($value !== null && $value !== '') {
+                return (string) $value;
+            }
+        }
+
+        return '';
+    }
+
     public function localizedValue(string $field): string
     {
         $locale = app()->getLocale();
-        $ar = $this->{$field.'_ar'} ?? null;
-        $en = $this->{$field.'_en'} ?? null;
 
-        if ($locale === 'en') {
-            return (string) ($en !== null && $en !== '' ? $en : $ar ?? '');
-        }
-
-        return (string) ($ar !== null && $ar !== '' ? $ar : $en ?? '');
+        return match ($locale) {
+            'en' => $this->firstNonEmptyLocalized($field, ['en', 'ar', 'de']),
+            'de' => $this->firstNonEmptyLocalized($field, ['de', 'en', 'ar']),
+            default => $this->firstNonEmptyLocalized($field, ['ar', 'en', 'de']),
+        };
     }
 
     /**
      * @param  array<int, string>  $fields
+     * @return array{ar: array<string, string>, en: array<string, string>, de: array<string, string>}
      */
     public function translationsFor(array $fields): array
     {
-        $out = ['ar' => [], 'en' => []];
+        $out = ['ar' => [], 'en' => [], 'de' => []];
 
         foreach ($fields as $field) {
             $out['ar'][$field] = $this->{$field.'_ar'} ?? '';
             $out['en'][$field] = $this->{$field.'_en'} ?? '';
+            $out['de'][$field] = $this->{$field.'_de'} ?? '';
         }
 
         return $out;

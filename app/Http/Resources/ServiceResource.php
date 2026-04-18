@@ -25,6 +25,10 @@ class ServiceResource extends JsonResource
                     'title' => $this->title_en ?? '',
                     'description' => $this->description_en ?? '',
                 ],
+                'de' => [
+                    'title' => $this->title_de ?? '',
+                    'description' => $this->description_de ?? '',
+                ],
             ],
         ];
     }

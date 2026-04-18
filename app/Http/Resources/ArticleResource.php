@@ -9,15 +9,11 @@ class ArticleResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        $slug = app()->getLocale() === 'en'
-            ? ($this->slug_en ?: $this->slug_ar)
-            : ($this->slug_ar ?: $this->slug_en);
-
         return [
             'id' => $this->id,
             'title' => $this->localizedValue('title'),
             'description' => $this->localizedValue('description'),
-            'slug' => $slug,
+            'slug' => $this->localizedValue('slug'),
             'category' => $this->localizedValue('category'),
             'icon' => $this->icon,
             'image' => $this->image ? asset('storage/'.$this->image) : null,
@@ -36,6 +32,12 @@ class ArticleResource extends JsonResource
                     'description' => $this->description_en ?? '',
                     'slug' => $this->slug_en ?? '',
                     'category' => $this->category_en ?? '',
+                ],
+                'de' => [
+                    'title' => $this->title_de ?? '',
+                    'description' => $this->description_de ?? '',
+                    'slug' => $this->slug_de ?? '',
+                    'category' => $this->category_de ?? '',
                 ],
             ],
         ];

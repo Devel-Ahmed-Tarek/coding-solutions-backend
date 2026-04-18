@@ -32,8 +32,10 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
+            'title_de' => 'nullable|string|max:255',
             'description_ar' => 'required|string',
             'description_en' => 'required|string',
+            'description_de' => 'nullable|string',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
@@ -57,8 +59,10 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'title_ar' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
+            'title_de' => 'nullable|string|max:255',
             'description_ar' => 'required|string',
             'description_en' => 'required|string',
+            'description_de' => 'nullable|string',
             'icon' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',

@@ -24,6 +24,7 @@ class ProjectResource extends JsonResource
                 'id' => $t->id,
                 'ar' => ['name' => $t->name_ar ?? ''],
                 'en' => ['name' => $t->name_en ?? ''],
+                'de' => ['name' => $t->name_de ?? ''],
             ])->values(),
             'order' => $this->order,
             'locale' => app()->getLocale(),
@@ -37,6 +38,11 @@ class ProjectResource extends JsonResource
                     'title' => $this->title_en ?? '',
                     'description' => $this->description_en ?? '',
                     'category' => $this->category_en ?? '',
+                ],
+                'de' => [
+                    'title' => $this->title_de ?? '',
+                    'description' => $this->description_de ?? '',
+                    'category' => $this->category_de ?? '',
                 ],
             ],
         ];

@@ -29,6 +29,11 @@ class TestimonialResource extends JsonResource
                     'job_title' => $this->job_title_en ?? '',
                     'quote' => $this->quote_en ?? '',
                 ],
+                'de' => [
+                    'name' => $this->name_de ?? '',
+                    'job_title' => $this->job_title_de ?? '',
+                    'quote' => $this->quote_de ?? '',
+                ],
             ],
         ];
     }

@@ -26,7 +26,7 @@
             <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4">
                     <div class="font-medium">{{ $project->title_ar }}</div>
-                    <div class="text-xs text-gray-500" dir="ltr">{{ $project->title_en }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $project->title_en }}@if($project->title_de) · {{ $project->title_de }}@endif</div>
                 </td>
                 <td class="px-6 py-4">
                     <div>{{ $project->category_ar ?? '—' }}</div>

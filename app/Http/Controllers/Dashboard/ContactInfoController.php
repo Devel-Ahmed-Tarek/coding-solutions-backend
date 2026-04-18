@@ -25,6 +25,7 @@ class ContactInfoController extends Controller
             'whatsapp' => 'nullable|string|max:50',
             'address_ar' => 'nullable|string',
             'address_en' => 'nullable|string',
+            'address_de' => 'nullable|string',
             'facebook' => 'nullable|string|max:255',
             'twitter' => 'nullable|string|max:255',
             'linkedin' => 'nullable|string|max:255',
@@ -33,8 +34,10 @@ class ContactInfoController extends Controller
             'logo' => 'nullable|string|max:255',
             'company_name_ar' => 'nullable|string|max:255',
             'company_name_en' => 'nullable|string|max:255',
+            'company_name_de' => 'nullable|string|max:255',
             'about_text_ar' => 'nullable|string',
             'about_text_en' => 'nullable|string',
+            'about_text_de' => 'nullable|string',
         ]);
 
         $contact = ContactInfo::first();

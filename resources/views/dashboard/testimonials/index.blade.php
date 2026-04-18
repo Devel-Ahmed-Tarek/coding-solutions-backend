@@ -26,7 +26,7 @@
             <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4">
                     <div>{{ $t->name_ar }}</div>
-                    <div class="text-xs text-gray-500" dir="ltr">{{ $t->name_en }}</div>
+                    <div class="text-xs text-gray-500" dir="ltr">{{ $t->name_en }}@if($t->name_de) · {{ $t->name_de }}@endif</div>
                 </td>
                 <td class="px-6 py-4">
                     <div>{{ $t->job_title_ar ?? '—' }}</div>

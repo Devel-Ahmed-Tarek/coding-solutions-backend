@@ -13,8 +13,10 @@ class Service extends Model
         'icon',
         'title_ar',
         'title_en',
+        'title_de',
         'description_ar',
         'description_en',
+        'description_de',
         'order',
         'is_active',
     ];

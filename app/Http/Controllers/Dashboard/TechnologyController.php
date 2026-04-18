@@ -32,6 +32,7 @@ class TechnologyController extends Controller
         $validated = $request->validate([
             'name_ar' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
+            'name_de' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
@@ -54,6 +55,7 @@ class TechnologyController extends Controller
         $validated = $request->validate([
             'name_ar' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
+            'name_de' => 'nullable|string|max:255',
             'order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);

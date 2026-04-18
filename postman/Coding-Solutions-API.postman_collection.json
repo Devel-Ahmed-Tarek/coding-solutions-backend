@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a1b2c3d4-coding-solutions-api",
 		"name": "Coding Solutions — Public API",
-		"description": "واجهة برمجة التطبيقات العامة للموقع (بدون مصادقة).\n\n**اللغة:** أضف `?lang=ar` أو `?lang=en` لأي طلب، أو استخدم ترويسة `Accept-Language: ar` أو `en`. القيمة الافتراضية للتطبيق من `APP_LOCALE`.\n\n**المقالات:** `{slug}` يقبل إما `slug_ar` أو `slug_en` لنفس المقال.\n\n**قبل الاستخدام:**\n1. شغّل السيرفر: `php artisan serve`\n2. في Postman: Variables → غيّر `base_url` إلى عنوانك (مثلاً `http://localhost:8000` أو `http://coding-solutions.test`)\n3. المسارات تبدأ بـ `/api`",
+		"description": "واجهة برمجة التطبيقات العامة للموقع (بدون مصادقة).\n\n**اللغة:** أضف `?lang=ar` أو `?lang=en` أو `?lang=de` لأي طلب، أو استخدم ترويسة `Accept-Language: ar` أو `en` أو `de`. القيمة الافتراضية للتطبيق من `APP_LOCALE`.\n\n**المقالات:** `{slug}` يقبل `slug_ar` أو `slug_en` أو `slug_de` لنفس المقال.\n\n**قبل الاستخدام:**\n1. شغّل السيرفر: `php artisan serve`\n2. في Postman: Variables → غيّر `base_url` إلى عنوانك (مثلاً `http://localhost:8000` أو `http://coding-solutions.test`)\n3. المسارات تبدأ بـ `/api`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [

@@ -17,6 +17,7 @@ class TechnologyResource extends JsonResource
             'translations' => [
                 'ar' => ['name' => $this->name_ar ?? ''],
                 'en' => ['name' => $this->name_en ?? ''],
+                'de' => ['name' => $this->name_de ?? ''],
             ],
         ];
     }

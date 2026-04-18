@@ -5,7 +5,7 @@
 @section('content')
 <div class="mb-8">
     <h1 class="text-2xl font-bold text-gray-800">إضافة خدمة</h1>
-    <p class="text-gray-500 mt-1">العربية والإنجليزية</p>
+    <p class="text-gray-500 mt-1">عربي / إنجليزي / ألماني (الألماني اختياري)</p>
 </div>
 
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-3xl">
@@ -39,6 +39,22 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Description (English)</label>
                         <textarea name="description_en" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('description_en') }}</textarea>
                         @error('description_en')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Deutsch</h2>
+                <p class="text-sm text-gray-500 mb-4">اختياري</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Titel (Deutsch)</label>
+                        <input type="text" name="title_de" value="{{ old('title_de') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">
+                        @error('title_de')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Beschreibung (Deutsch)</label>
+                        <textarea name="description_de" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" dir="ltr">{{ old('description_de') }}</textarea>
+                        @error('description_de')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                     </div>
                 </div>
             </div>

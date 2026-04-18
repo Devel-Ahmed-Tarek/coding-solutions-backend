@@ -6,7 +6,7 @@
 <div class="mb-8 flex justify-between items-start">
     <div>
         <h1 class="text-2xl font-bold text-gray-800">{{ $project->title_ar }}</h1>
-        <p class="text-gray-500 mt-1" dir="ltr">{{ $project->title_en }}</p>
+        <p class="text-gray-500 mt-1" dir="ltr">{{ $project->title_en }}@if($project->title_de) · {{ $project->title_de }}@endif</p>
     </div>
     <div class="flex gap-2">
         <a href="{{ route('dashboard.projects.edit', $project) }}" class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition text-sm">تعديل</a>
@@ -23,10 +23,16 @@
         <h3 class="text-sm font-medium text-gray-500 mb-2">Description — English</h3>
         <p class="text-gray-800" dir="ltr">{{ $project->description_en ?? '—' }}</p>
     </div>
+    @if($project->description_de)
+    <div>
+        <h3 class="text-sm font-medium text-gray-500 mb-2">Beschreibung — Deutsch</h3>
+        <p class="text-gray-800" dir="ltr">{{ $project->description_de }}</p>
+    </div>
+    @endif
     <dl class="space-y-4 pt-4 border-t">
         <div>
             <dt class="text-sm font-medium text-gray-500">الفئة</dt>
-            <dd class="mt-1 text-gray-800">{{ $project->category_ar ?? '—' }} / <span dir="ltr">{{ $project->category_en ?? '—' }}</span></dd>
+            <dd class="mt-1 text-gray-800">{{ $project->category_ar ?? '—' }} / <span dir="ltr">{{ $project->category_en ?? '—' }}</span>@if($project->category_de) / <span dir="ltr">{{ $project->category_de }}</span>@endif</dd>
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">الرابط</dt>
@@ -40,7 +46,7 @@
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">التقنيات</dt>
-            <dd class="mt-1 text-gray-800">{{ $project->technologies->map(fn ($t) => $t->name_ar.' ('.$t->name_en.')')->join(', ') ?: '—' }}</dd>
+            <dd class="mt-1 text-gray-800">{{ $project->technologies->map(fn ($t) => $t->name_ar.' ('.$t->name_en.($t->name_de ? ' / '.$t->name_de : '').')')->join(', ') ?: '—' }}</dd>
         </div>
         <div>
             <dt class="text-sm font-medium text-gray-500">الترتيب</dt>
